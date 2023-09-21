@@ -1,6 +1,14 @@
-const express = require("express");
-const app = express();
-const port = 3000;
+const express = require("express"); // Importamos la libreria
+const app = express(); // Creamos una instancia de la libreria
+const port = 3000; // Definimos el puerto
+
+
+app.get("/", (req, res) => {
+  
+  res.send(
+    "hola mundo"
+  );
+})
 
 app.get("/persona/:idPersona", (req, res) => {
   const personas = [
@@ -20,6 +28,7 @@ app.get("/persona/:idPersona", (req, res) => {
   // req.params es para obtener la informacion de un identificador de la ruta, por ejemplo : /:idPersona
 });
 
+// Iniciamos el servidor con listen
 app.listen(port, () => {
   console.log(`Funcionando en el puerto ${port}`);
 });
