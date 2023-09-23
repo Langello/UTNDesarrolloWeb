@@ -89,19 +89,24 @@ const alumno1 = new Alumnoos(
 );
 alumno1.dormir();
 
-// hacer una calse negocio que tenga 4 atributos, un constructor y tres metodos con todos los getesr y seteers
 
+
+
+
+
+
+// hacer una calse negocio que tenga 4 atributos, un constructor y tres metodos con todos los getesr y seteers
 class Negocio {
   private nombre: string;
   private direccion: string;
-  private telefono: string;
-  private categoria: string;
+  private telefono: number;
+  private abierto: boolean;
 
-  constructor(nombre: string, direccion: string, telefono: string, categoria: string) {
+  constructor(nombre: string, direccion: string, telefono: number, abierto: boolean) {
     this.nombre = nombre;
     this.direccion = direccion;
     this.telefono = telefono;
-    this.categoria = categoria;
+    this.abierto = abierto;
   }
 
   public getNombre(): string {
@@ -120,31 +125,66 @@ class Negocio {
     this.direccion = direccion;
   }
 
-  public getTelefono(): string {
+  public getTelefono(): number {
     return this.telefono;
   }
 
-  public setTelefono(telefono: string): void {
+  public setTelefono(telefono: number): void {
     this.telefono = telefono;
   }
 
-  public getCategoria(): string {
-    return this.categoria;
+  public getAbierto(): boolean {
+    return this.abierto;
   }
 
-  public setCategoria(categoria: string): void {
-    this.categoria = categoria;
+  public setAbierto(abierto: boolean): void {
+    this.abierto = abierto;
   }
 
-  public metodo1(): void {
-    // Implementación del método 1
+    //si la hora esta dentro de las 10:00 a 20:00 el negocio esta abierto
+  public estaAbierto(): void {
+    let horaActual: number = new Date().getHours();
+    const horaAbre: number = 8;
+    const horaCierra: number = 20;
+    if (horaActual >= horaAbre && horaActual < horaCierra) {
+      this.abierto = true;
+      console.log(`${this.nombre} esta abierto y faltan menos de ${horaCierra - horaActual} hs para cerrar`);
+    } else {
+      this.abierto = false;
+      console.log(`${this.nombre} esta cerrado y abre en menos de ${horaActual- horaAbre} hs`);
+    }
+  }
+  //si la distancia es mayor a 15 kilometros el delivery no llega
+  public delivery(distancia: number): void {
+    if (distancia > 15) {
+      console.log("El delivery no llega");
+    }
+    else {
+      console.log("Estas dentro del radio del delivery");
+    }
   }
 
-  public metodo2(): void {
-    // Implementación del método 2
-  }
-
-  public metodo3(): void {
-    // Implementación del método 3
+  public recomendar(): void {
+    console.log(`${this.nombre} agradece tu recomendacion`);
   }
 }
+
+
+// Crear un objeto de la clase Negocio
+const laQuintana = new Negocio("La Quintana", "Calle 123", 123456789, true);
+// saber si esta abierto
+laQuintana.estaAbierto();
+// saber si el delivery llega
+laQuintana.delivery(17);
+// recomendar
+laQuintana.recomendar();
+
+// Crear un ojeto de la clase Negocio
+const rapanui = new Negocio("Rapanui", "Calle 8955", 156358856, false);
+// saber si esta abierto
+rapanui.estaAbierto();
+// saber si el delivery llega
+rapanui.delivery(17);
+// recomendar
+rapanui.recomendar();
+
