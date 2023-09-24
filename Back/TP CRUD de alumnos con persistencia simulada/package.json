@@ -1,0 +1,18 @@
+{
+  "name": "tp-crud-de-alumnos-con-persistencia-simulada",
+  "version": "1.0.0",
+  "description": "CRUD de alumnos con persistencia simulada\r Para la clase del miércoles 20 practicaremos los métodos http y la lógica de creación\r lectura actualización y borrado (CRUD).\r El ejercicio\r El cliente nos pide un pequeño sistema que le permite agregar cursos y alumnos, por\r ahora no quiere que persistamos datos sinó que hagamos una prueba de concepto\r (POC) desde el back.\r Un ejemplo de get de un alumno puntual debería ser:\r path: /alumno/:id\r Response:\r {\r id: 12\r nombre: “Facundo Perez”,\r email: “fperez@codoacodo.com”\r cursos: [\r {código:k200, nombre: “Programación Fullstack. js”},\r {código:k201, nombre: “Testing ”}\r ]\r }\r Un ejemplo obtener una lista de alumnos es:\r path: /alumno/list\r Response:\r [\r {\r id: 11\r nombre: “Juan Perez”,\r apellido: “Perez”,\r email: “jperez@codoacodo.com”\r cursos: [\r {código:k200, nombre: “Paradigmas de la Programación”},\r {código:k201, nombre: “Testing ”}\r ]\r },\r {\r id: 12\r nombre: “Facundo Perez”,\r email: “fperez@codoacodo.com”\r cursos: [\r {código:k200, nombre: “Programación Fullstack. js”},\r {código:k201, nombre: “Testing ”}\r ]\r }\r ]\r Endpoints a desarrollar:\r ● Poder agregar y quitar cursos de un alumno.\r ● Poder obtener a todos los alumnos.\r ● Poder obtener un alumno puntual.\r ● Crear un alumno.\r ● Eliminar a un alumno.\r Agregar validaciones\r Agregar dos validaciones mínimo, puede ser en los endpoints de creación o\r actualización. Por ejemplo:\r validar si el mail del usuario a crear se repite\r validar si el mail tiene formato válido\r validar si el usuario a actualizar existe.\r validar si el valor a actualizar es válido ( no deberías actualizar un valor que no existe por\r ejemplo)\r Por ahora no usaremos persistencia utilizaremos utilizaremos una lista de objetos\r alumnos para representar una colección en la base de datos, como hicimos en clase,\r Todo el desarrollo debe darse en node.js, utilizando el framework express.js. Además\r deberán probarlo en Postman.\r Por último deberán subir este proyecto a github, de forma pública y enviar la url del\r proyecto al siguiente mail:\r facundofranco2008@gmail.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "email-validator": "^2.0.4",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
