@@ -1,6 +1,8 @@
 const express = require("express"); // Importamos la libreria
 const app = express(); // Creamos una instancia de la libreria
 const port = 3000; // Definimos el puerto
+
+const validator = require("email-validator");//validar formato de email con la biblioteca validator-email
 const alumnos = [
   {
     id: 1,
@@ -22,14 +24,12 @@ const alumnos = [
     ],
   },
 ];
-
-idSiguiente = alumnos.length + 1; // Definimos el ID del siguiente alumno para que no se repitan
+let idSiguiente = alumnos.length + 1; // Definimos el ID del siguiente alumno para que no se repitan
 
 app.use(express.json()); // Configuramos el middleware para analizar el cuerpo de las solicitudes con contenido JSON
 app.use(express.urlencoded({ extended: false })); // Configuramos el middleware para analizar el cuerpo de las solicitudes con contenido codificado en URL
 
-//validar formato de email con la biblioteca validator-email
-let validator = require("email-validator");
+
 
 // Rutas
 // Lista de alumnos
@@ -52,7 +52,6 @@ app.post("/alumno", (req, res) => {
   const { nombre, apellido, email, cursos } = req.body; // Obtiene los datos proporcionados en el cuerpo de la solicitud
   const nuevoAlumno = {
     id: idSiguiente,
-    nombre,
     nombre,
     apellido,
     email,
