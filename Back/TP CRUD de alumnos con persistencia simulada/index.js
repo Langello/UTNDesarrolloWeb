@@ -24,7 +24,7 @@ const alumnos = [
     ],
   },
 ];
-let idSiguiente = alumnos.length + 1; // Definimos el ID del siguiente alumno para que no se repitan
+let idSiguiente = alumnos.length + 1; //  Definimos el ID del siguiente alumno para que no se repitan
 
 app.use(express.json()); // Configuramos el middleware para analizar el cuerpo de las solicitudes con contenido JSON
 app.use(express.urlencoded({ extended: false })); // Configuramos el middleware para analizar el cuerpo de las solicitudes con contenido codificado en URL
