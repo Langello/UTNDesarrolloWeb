@@ -1,6 +1,6 @@
 const express = require("express"); // Importamos la libreria
 const app = express(); // Creamos una instancia de la libreria
-const port = 3000; // Definimos el puerto
+const port = 3001; // Definimos el puerto
 
 const validator = require("email-validator");//validar formato de email con la biblioteca validator-email
 const alumnos = [
