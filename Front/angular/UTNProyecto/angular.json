@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "primeraApp": {
+    "UTNProyecto": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/primera-app",
+            "outputPath": "dist/utnproyecto",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,9 +25,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -60,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "primeraApp:build:production"
+              "browserTarget": "UTNProyecto:build:production"
             },
             "development": {
-              "browserTarget": "primeraApp:build:development"
+              "browserTarget": "UTNProyecto:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "primeraApp:build"
+            "browserTarget": "UTNProyecto:build"
           }
         },
         "test": {
@@ -96,6 +100,6 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "0f93c11d-f651-46c6-966a-ad6944d862ec"
   }
 }
