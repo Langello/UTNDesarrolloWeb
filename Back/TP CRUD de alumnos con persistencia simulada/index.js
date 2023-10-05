@@ -24,6 +24,7 @@ const alumnos = [
     ],
   },
 ];
+
 let idSiguiente = alumnos.length + 1; //  Definimos el ID del siguiente alumno para que no se repitan
 
 app.use(express.json()); // Configuramos el middleware para analizar el cuerpo de las solicitudes con contenido JSON
@@ -47,6 +48,7 @@ app.get("/alumno/:id", (req, res) => {
     res.status(404).json({ mensaje: "Alumno no encontrado" }); // Devuelve una respuesta de error si no se encuentra el alumno
   }
 });
+
 // Alumno nuevo
 app.post("/alumno", (req, res) => {
   const { nombre, apellido, email, cursos } = req.body; // Obtiene los datos proporcionados en el cuerpo de la solicitud
@@ -60,7 +62,7 @@ app.post("/alumno", (req, res) => {
   //validar si el email ya exite y si teine formato valido
   if (alumnos.find((alumno) => alumno.email === email)) {
     res.status(400).json({ mensaje: "El email ya existe" });
-  } else if (!validator.validate(email)) {
+  } else if (!validator.validate(email)) { //cambiar por express-validator
     res.status(400).json({ mensaje: "El email no tiene formato valido" });
   } else {
     alumnos.push(nuevoAlumno); // Agrega el nuevo alumno a la lista de alumnos
@@ -68,6 +70,7 @@ app.post("/alumno", (req, res) => {
   idSiguiente++; // Incrementa el ID para el siguiente alumno
   res.status(201).json(nuevoAlumno); // Devuelve una respuesta de creación y el alumno nuevo en formato JSON
 });
+
 // Borrar alumno
 app.delete("/alumno/:id", (req, res) => {
   const id = req.params.id; // Obtiene el ID proporcionado en la URL
