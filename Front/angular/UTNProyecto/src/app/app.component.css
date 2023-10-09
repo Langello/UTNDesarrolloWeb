@@ -25,3 +25,13 @@ ul{
 .navbar {
     margin-bottom: 50px;
 }
+
+@media (max-width: 768px){
+    .navbar-nav{
+        flex-direction: row;
+        margin: 0;
+    }
+    .logo-container {
+        margin-right: 0px;
+    }
+}
