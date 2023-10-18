@@ -1,11 +1,11 @@
-const express = require("express"); // Importamos la libreria
+import express from 'express';
 const app = express(); // Creamos una instancia de la libreria
 const port = 3001; // Definimos el puerto
 
 app.use(express.json()); // Configuramos el middleware para analizar el cuerpo de las solicitudes con contenido JSON
 app.use(express.urlencoded({ extended: false })); // Configuramos el middleware para analizar el cuerpo de las solicitudes con contenido codificado en URL
 
-const { body, validationResult } = require('express-validator');
+import { body, validationResult } from 'express-validator';
 
 const alumnos = [
   {

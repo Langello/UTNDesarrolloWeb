@@ -11,6 +11,4 @@ const Alumno = sequelize.define('User', {
   Email: DataTypes.STRING,
 });
 
-module.exports = {
-  Alumno
-}
+export {Alumno};
