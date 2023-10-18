@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
 
+
 dotenv.config();
 
 const sequelize = new Sequelize("CRUD", "root", process.env.PASSWORD, {
@@ -16,6 +17,8 @@ const autenticar = async () => {
     console.error("Error al conectar a la Base de Datos", error);
   }
 };
+
+
 
 
 
