@@ -1,6 +1,16 @@
 import {Alumno} from '../alumnos/alumnoMODEL.js';
 
-// Consultar Alumnos
+
+
+// Obtener un Alumno
+async function  obtenerAlumno(){
+  const alumno = await Alumno.findByPk(1);
+  console.log(alumno);
+}
+
+//obtenerAlumno();
+
+// Consultar lista de Alumnos
 async function  consultarAlumnos(){
   const alumnos = await Alumno.findAll();
   console.log(alumnos);
@@ -20,4 +30,24 @@ async function crearAlumno(){
   console.log(alumno);
 }
 
-crearAlumno();
+//crearAlumno();
+
+// Actualizar Alumno
+async function actualizarAlumno(){
+  const alumno = await Alumno.findByPk(1);
+  alumno.Email = 'fperez@codoacodo.com';
+  await alumno.save();
+  console.log(alumno);
+}
+
+//actualizarAlumno();
+
+// Eliminar Alumno
+async function eliminarAlumno(){
+  const alumno = await Alumno.findByPk(1);
+  await alumno.destroy();
+  console.log(alumno);
+}
+
+//eliminarAlumno();
+
