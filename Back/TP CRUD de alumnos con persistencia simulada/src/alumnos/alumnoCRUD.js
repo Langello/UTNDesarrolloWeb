@@ -1,19 +1,27 @@
-import {Alumno} from '../alumnos/alumnoMODEL.js';
-
-
+import { Alumno } from "../alumnos/alumnoMODEL.js";
 
 // Obtener un Alumno
-async function  obtenerAlumno(){
-  const alumno = await Alumno.findByPk(1);
-  console.log(alumno);
+async function obtenerAlumno(id) {
+  return await Alumno.findByPk(id)
+    .then((alumno) => {
+      if (!alumno) {
+        throw new Error("Alumno no encontrado");
+      }
+      return alumno.dataValues;
+    })
+    .catch((error) => {
+      throw error;
+    });
 }
 
-//obtenerAlumno();
+//obtenerAlumno(2);
 
 // Consultar lista de Alumnos
-async function  consultarAlumnos(){
-  const alumnos = await Alumno.findAll();
-  console.log(alumnos);
+async function consultarAlumnos() {
+  const alumnos = await Alumno.findAll({
+    attributes: ["id", "Nombre", "Apellido", "Email"],
+  });
+  return alumnos.map((alumno) => alumno.dataValues);
 }
 
 //consultarAlumnos();
@@ -21,33 +29,47 @@ async function  consultarAlumnos(){
 // Salta error de permisos
 
 // Crear Alumno
-async function crearAlumno(){
-  const alumno = await Alumno.create({
-    Nombre: 'Facundo',
-    Apellido: 'Franco',
-    Email: 'fperez@codoacodo.com'
-  });
-  console.log(alumno);
+async function crearAlumno() {
+  return await Alumno.create({
+    Nombre: "Facundo",
+    Apellido: "Franco",
+    Email: "fpsrrdfsd@codoacodo.com",
+  })
+    .then((alumno) => {
+      return alumno.dataValues;
+    })
+    .catch((error) => {
+      throw error;
+    });
 }
 
 //crearAlumno();
 
 // Actualizar Alumno
-async function actualizarAlumno(){
-  const alumno = await Alumno.findByPk(1);
-  alumno.Email = 'fperez@codoacodo.com';
-  await alumno.save();
-  console.log(alumno);
+async function actualizarAlumno(id) {
+  const alumnoAtributs = 
+    {
+      Email: "fpsholarrdfsd@codoacodo.com",
+      Nombre: "Carlos"
+    }
+  
+  const alumnoQuery = {
+    where: {
+      id: id
+    }
+  }
+
+  const alumno =  await Alumno.update(alumnoAtributs, alumnoQuery);
+  return alumno;
 }
 
-//actualizarAlumno();
+//actualizarAlumno(3);
 
 // Eliminar Alumno
-async function eliminarAlumno(){
-  const alumno = await Alumno.findByPk(1);
+async function eliminarAlumno(id) {
+  const alumno = await Alumno.findByPk(id);
   await alumno.destroy();
-  console.log(alumno);
+  return alumno;
 }
 
-//eliminarAlumno();
-
+eliminarAlumno(3);
