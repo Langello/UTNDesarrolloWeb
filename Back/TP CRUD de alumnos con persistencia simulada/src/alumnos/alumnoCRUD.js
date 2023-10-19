@@ -72,4 +72,4 @@ async function eliminarAlumno(id) {
   return alumno;
 }
 
-eliminarAlumno(3);
+//eliminarAlumno(3);
