@@ -1,6 +1,8 @@
 .btn-primary{
-    width: 100%;
+    width: 50%;
     font-size: x-large;
+    display: block;
+    margin: auto;
 }
 
 @media (min-width: 768px){

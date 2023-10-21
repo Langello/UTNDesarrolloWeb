@@ -1,77 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3" *ngFor="let producto of productos.slice(0, contador)">
       <div class="card">
-        <img src="https://images.prd.kavak.io/eyJidWNrZXQiOiJrYXZhay1pbWFnZXMiLCJrZXkiOiJpbWFnZXMvMjY0MDIzL0VYVEVSSU9SLWZyb250U2lkZVBpbG90TmVhci0xNjkxNTE2NTQ3MTgzLmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgxMCwiaGVpZ2h0Ijo0NjV9fX0=" class="card-img-top" alt="Imagen 1">
+        <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre">
         <div class="card-body">
-          <h5 class="card-title">Producto 1</h5>
-          <p class="card-text">Valor: $500</p>
+          <h5 class="card-title">{{ producto.nombre }}</h5>
+          <p class="card-text">Valor: {{ producto.valor }}</p>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://images.prd.kavak.io/eyJidWNrZXQiOiJrYXZhay1pbWFnZXMiLCJrZXkiOiJpbWFnZXMvMjc1MjQ0L0VYVEVSSU9SLWZyb250U2lkZVBpbG90TmVhci0xNjkzNTY2MTkzNDQyLmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgxMCwiaGVpZ2h0Ijo0NjV9fX0=" class="card-img-top" alt="Imagen 2">
-        <div class="card-body">
-          <h5 class="card-title">Producto 2</h5>
-          <p class="card-text">Valor: $750</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://images.prd.kavak.io/eyJidWNrZXQiOiJrYXZhay1pbWFnZXMiLCJrZXkiOiJpbWFnZXMvMjI5NTM5L0VYVEVSSU9SLWZyb250U2lkZVBpbG90TmVhci0xNjgxMzg3MjcxNjg2LmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgxMCwiaGVpZ2h0Ijo0NjV9fX0=" class="card-img-top" alt="Imagen 3">
-        <div class="card-body">
-          <h5 class="card-title">Producto 3</h5>
-          <p class="card-text">Valor: $1000</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://images.prd.kavak.io/eyJidWNrZXQiOiJrYXZhay1pbWFnZXMiLCJrZXkiOiJpbWFnZXMvMjc5MTA4L0VYVEVSSU9SLWZyb250U2lkZVBpbG90TmVhci0xNjk2MDEwNDY1MDc4LmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgxMCwiaGVpZ2h0Ijo0NjV9fX0=" class="card-img-top" alt="Imagen 4">
-        <div class="card-body">
-          <h5 class="card-title">Producto 4</h5>
-          <p class="card-text">Valor: $1200</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://images.prd.kavak.io/eyJidWNrZXQiOiJrYXZhay1pbWFnZXMiLCJrZXkiOiJpbWFnZXMvMjc5NTMxL0VYVEVSSU9SLWZyb250U2lkZVBpbG90TmVhci0xNjk1ODM3MzA0MzEzLmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgxMCwiaGVpZ2h0Ijo0NjV9fX0=" class="card-img-top" alt="Imagen 5">
-        <div class="card-body">
-          <h5 class="card-title">Producto 5</h5>
-          <p class="card-text">Valor: $1500</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://images.prd.kavak.io/eyJidWNrZXQiOiJrYXZhay1pbWFnZXMiLCJrZXkiOiJpbWFnZXMvMjc5NTU1L0VYVEVSSU9SLWZyb250U2lkZVBpbG90TmVhci0xNjk2MjQzNTY3NzQ4LmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgxMCwiaGVpZ2h0Ijo0NjV9fX0=" class="card-img-top" alt="Imagen 6">
-        <div class="card-body">
-          <h5 class="card-title">Producto 6</h5>
-          <p class="card-text">Valor: $1800</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-          <img src="https://images.prd.kavak.io/eyJidWNrZXQiOiJrYXZhay1pbWFnZXMiLCJrZXkiOiJpbWFnZXMvMjc5NzQ0L0VYVEVSSU9SLWZyb250U2lkZVBpbG90TmVhci0xNjk1NjU4ODM2MTQzLmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgxMCwiaGVpZ2h0Ijo0NjV9fX0=" class="card-img-top" alt="Imagen 7">
-          <div class="card-body">
-            <h5 class="card-title">Producto 7</h5>
-            <p class="card-text">Valor: $2000</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://images.prd.kavak.io/eyJidWNrZXQiOiJrYXZhay1pbWFnZXMiLCJrZXkiOiJpbWFnZXMvMjc5OTkxL0VYVEVSSU9SLWZyb250U2lkZVBpbG90TmVhci0xNjk1ODMxMDk1MzE1LmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgxMCwiaGVpZ2h0Ijo0NjV9fX0=" class="card-img-top" alt="Imagen 8">
-          <div class="card-body">
-            <h5 class="card-title">Producto 8</h5>
-            <p class="card-text">Valor: $2200</p>
-          </div>
-        </div>
-      </div>
-
   </div>
 </div>
+
+<!-- boton para cargar mas -->
+<button type="button" class="btn btn-primary" (click)="cargarMas()" >Más autos</button>
