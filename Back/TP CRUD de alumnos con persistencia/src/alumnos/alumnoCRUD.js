@@ -18,15 +18,18 @@ async function obtenerAlumno(id) {
 
 // Consultar lista de Alumnos
 async function consultarAlumnos() {
-  const alumnos = await Alumno.findAll({
+  return await Alumno.findAll({
     attributes: ["id", "Nombre", "Apellido", "Email"],
-  });
-  return alumnos.map((alumno) => alumno.dataValues);
+  })
+    .then((alumnos) => {
+      return alumnos;
+    })
+    .catch((error) => {
+      throw error;
+    });
 }
 
 //consultarAlumnos();
-
-// Salta error de permisos
 
 // Crear Alumno
 async function crearAlumno() {
@@ -47,29 +50,41 @@ async function crearAlumno() {
 
 // Actualizar Alumno
 async function actualizarAlumno(id) {
-  const alumnoAtributs = 
-    {
-      Email: "fpsholarrdfsd@codoacodo.com",
-      Nombre: "Carlos"
-    }
-  
+  const alumnoAtributs = {
+    Email: "fpsholarrdfsd@codoacodo.com",
+    Nombre: "Carlos",
+  };
+
   const alumnoQuery = {
     where: {
-      id: id
-    }
-  }
+      id: id,
+    },
+  };
 
-  const alumno =  await Alumno.update(alumnoAtributs, alumnoQuery);
-  return alumno;
+  return await Alumno.update(alumnoAtributs, alumnoQuery)
+    .then((alumno) => {
+      return alumno.dataValues;
+    })
+    .catch((error) => {
+      throw error;
+    });
 }
 
 //actualizarAlumno(3);
 
 // Eliminar Alumno
 async function eliminarAlumno(id) {
-  const alumno = await Alumno.findByPk(id);
-  await alumno.destroy();
-  return alumno;
+  return await Alumno.destroy({
+    where: {
+      id: id,
+    },
+  })
+    .then((alumno) => {
+      return alumno;
+    })
+    .catch((error) => {
+      throw error;
+    });
 }
 
-//eliminarAlumno(3);
+//eliminarAlumno(2);
