@@ -13,4 +13,4 @@
 </div>
 
 <!-- boton para cargar mas -->
-<button type="button" class="btn btn-primary" (click)="cargarMas()" >Más autos</button>
+<button  *ngIf="contador < productos.length" type="button" class="btn btn-primary" (click)="cargarMas()" >Más autos</button>
