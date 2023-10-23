@@ -1,90 +1,81 @@
 import { Alumno } from "../alumnos/alumnoMODEL.js";
 
 // Obtener un Alumno
-async function obtenerAlumno(id) {
-  return await Alumno.findByPk(id)
+async function obtenerAlumno(req, res) {
+  return await Alumno.findByPk(req.params.id)
     .then((alumno) => {
       if (!alumno) {
-        throw new Error("Alumno no encontrado");
+        return res.status(404).json("Alumno no encontrado");
       }
-      return alumno.dataValues;
+      return res.json(alumno);
     })
     .catch((error) => {
-      throw error;
+      return res.json(error);
     });
 }
-
-//obtenerAlumno(2);
 
 // Consultar lista de Alumnos
-async function consultarAlumnos() {
+async function consultarAlumnos(req, res) {
   return await Alumno.findAll({
-    attributes: ["id", "Nombre", "Apellido", "Email"],
+    attributes: ["id", "Nombre", "Apellido", "Email", "createdAt", "updatedAt"],
   })
     .then((alumnos) => {
-      return alumnos;
+      return res.json(alumnos);
     })
     .catch((error) => {
-      throw error;
+      return res.json(error);
     });
 }
-
-//consultarAlumnos();
 
 // Crear Alumno
-async function crearAlumno() {
+async function crearAlumno(req, res) {
   return await Alumno.create({
-    Nombre: "Facundo",
-    Apellido: "Franco",
-    Email: "fpsrrdfsd@codoacodo.com",
+    Nombre: req.body.Nombre,
+    Apellido: req.body.Apellido,
+    Email: req.body.Email,
   })
     .then((alumno) => {
-      return alumno.dataValues;
+      return res.json(alumno);
     })
     .catch((error) => {
-      throw error;
+      return res.json(error);
     });
 }
 
-//crearAlumno();
-
-// Actualizar Alumno
-async function actualizarAlumno(id) {
-  const alumnoAtributs = {
-    Email: "fpsholarrdfsd@codoacodo.com",
-    Nombre: "Carlos",
-  };
-
-  const alumnoQuery = {
-    where: {
-      id: id,
-    },
-  };
-
-  return await Alumno.update(alumnoAtributs, alumnoQuery)
-    .then((alumno) => {
-      return alumno.dataValues;
-    })
-    .catch((error) => {
-      throw error;
-    });
-}
-
-//actualizarAlumno(3);
 
 // Eliminar Alumno
-async function eliminarAlumno(id) {
+async function eliminarAlumno(req, res) {
   return await Alumno.destroy({
     where: {
-      id: id,
+      id: req.params.id,
     },
   })
     .then((alumno) => {
-      return alumno;
+      if (!alumno) {
+        return res.status(404).json("Alumno no encontrado");
+      }
+      return res.json(`Alumno ${req.params.id} eliminado con exito`);
     })
     .catch((error) => {
-      throw error;
+      return res.json(error);
     });
 }
 
-//eliminarAlumno(2);
+// // Actualizar Curso
+// async function actualizarCurso(req, res) {
+  
+// }
+
+// // Eliminar Curso
+// async function eliminarCurso(req, res) {
+// }
+
+
+export {
+  obtenerAlumno,
+  crearAlumno,
+  //actualizarCurso,
+  eliminarAlumno,
+  consultarAlumnos,
+  //eliminarCurso
+};
