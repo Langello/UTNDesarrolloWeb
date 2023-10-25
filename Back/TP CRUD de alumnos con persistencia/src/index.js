@@ -6,6 +6,9 @@ import {
   eliminarAlumno,
   consultarAlumnos,
 } from "./alumnos/alumnoCRUD.js";
+
+import { crearCursos } from "./cursos/cursosCRUD.js";
+
 const app = express(); // Creamos una instancia de la libreria
 const port = 3001; // Definimos el puerto
 
@@ -30,6 +33,8 @@ app.delete("/alumno/:id", eliminarAlumno);
 app.put("/alumno/:id/curso");
 // Quitar curso de un alumno
 app.patch("/alumno/:id/curso/:codigo");
+// Crear un nuevo curso
+app.post("/curso", crearCursos);
 
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
