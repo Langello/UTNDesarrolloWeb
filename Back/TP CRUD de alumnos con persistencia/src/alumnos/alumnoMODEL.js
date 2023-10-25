@@ -14,6 +14,7 @@ const Alumno = sequelize.define('alumno', {
     defaultValue: DataTypes.NOW
   },
   updatedAt: DataTypes.DATE,
+  password: DataTypes.STRING
 
 }, {
   timestamps: false,

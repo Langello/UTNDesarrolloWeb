@@ -12,7 +12,7 @@ const port = 3001; // Definimos el puerto
 app.use(express.json()); // Configuramos el middleware para analizar el cuerpo de las solicitudes con contenido JSON
 app.use(express.urlencoded({ extended: false })); // Configuramos el middleware para analizar el cuerpo de las solicitudes con contenido codificado en URL
 
-import { body, validationResult } from "express-validator";
+
 
 //conexión a la base de datos
 autenticar();
