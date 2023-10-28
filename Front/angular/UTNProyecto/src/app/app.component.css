@@ -12,7 +12,14 @@ ul{
 }
 
 .nav-item:hover {
-    text-decoration: underline;
+    background-color: rgb(223, 224, 230);
+    border-radius: 5px;
+}
+
+.active {
+    background-color: #7baffd;
+    border-radius: 5px;
+    color: #f8f9fa 
 }
 
 

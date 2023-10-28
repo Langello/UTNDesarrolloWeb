@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'UTN Proyecto';
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    
+  }
+
+  isActive(route: string) {
+    return this.router.url === route;
+  }
 }
