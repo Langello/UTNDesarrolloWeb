@@ -13,5 +13,8 @@
         font-size: x-large;
     }
     
+    .text-danger{
+        font-size: medium;
+    }
     
 }
