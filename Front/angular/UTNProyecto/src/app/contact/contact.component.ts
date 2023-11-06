@@ -12,9 +12,9 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(){
     this.contactForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      message: ['', Validators.required]
+      message: ['', [Validators.required, Validators.minLength(15)]]
     });
   }
 
@@ -23,7 +23,7 @@ export class ContactComponent implements OnInit {
       console.log(this.contactForm.value);
       this.contactForm.reset();
     } else {
-      console.log(this.contactForm.status);
+      console.log(this.contactForm);
     }
   }
 }

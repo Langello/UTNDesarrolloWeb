@@ -20,8 +20,11 @@
         "
         class="text-danger"
       >
-        <div *ngIf="contactForm.get('name')?.errors">
+        <div *ngIf="contactForm.get('name')?.errors?.['required']">
           <p>Ingresa un nombre</p>
+        </div>
+        <div *ngIf="contactForm.get('name')?.errors?.['minlength']">
+          <p>Ingresa un nombre más largo</p>
         </div>
       </div>
     </div>
@@ -75,8 +78,11 @@
         "
         class="text-danger"
       >
-        <div *ngIf="contactForm.get('message')?.errors">
+        <div *ngIf="contactForm.get('message')?.errors?.['required']">
           <p>Este campo es obligatorio</p>
+        </div>
+        <div *ngIf="contactForm.get('message')?.errors?.['minlength']">
+          <p>Ingresa un mensaje mas largo, mínimo 15 caracteres</p>
         </div>
       </div>
     </div>
